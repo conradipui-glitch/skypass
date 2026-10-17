@@ -108,6 +108,10 @@ const StepPanel: React.FC<{ step: Step; className?: string }> = ({ step, classNa
           <img
             src={step.img}
             alt={step.tag}
+            width={1920}
+            height={1280}
+            loading="lazy"
+            decoding="async"
             className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/45 to-ink/15" />

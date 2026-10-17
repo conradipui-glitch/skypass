@@ -144,6 +144,10 @@ export default function Network() {
       <img
         src="./img/resort-aerial.jpg"
         alt="Ночной вид курорта сверху: подсвеченные трассы как единая сеть"
+        width={1920}
+        height={1280}
+        loading="lazy"
+        decoding="async"
         className="absolute inset-0 h-full w-full object-cover opacity-[0.32]"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-ink via-ink/78 to-ink" />

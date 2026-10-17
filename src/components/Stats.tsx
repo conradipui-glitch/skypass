@@ -58,6 +58,10 @@ export default function Stats() {
             <motion.img
               src="./img/rental.jpg"
               alt="Стена проката: ряды лыж и сноубордов в драматичном свете"
+              width={1920}
+              height={1280}
+              loading="lazy"
+              decoding="async"
               style={{ y: imgY }}
               className="absolute inset-0 h-[124%] w-full object-cover"
             />

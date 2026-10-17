@@ -94,19 +94,27 @@ html.has-cursor * {
 }
 
 @utility text-stroke {
-  -webkit-text-stroke: 1px rgba(196, 226, 255, 0.3);
+  -webkit-text-stroke: 1.2px rgba(206, 232, 255, 0.46);
   color: transparent;
 }
 
 @utility text-stroke-strong {
-  -webkit-text-stroke: 1px rgba(196, 226, 255, 0.5);
+  -webkit-text-stroke: 2px rgba(228, 244, 255, 0.85);
   color: transparent;
+  filter: drop-shadow(0 2px 20px rgba(4, 7, 12, 0.7));
 }
 
 @utility text-stroke-glacier {
-  -webkit-text-stroke: 1px rgba(110, 233, 255, 0.55);
+  -webkit-text-stroke: 1.6px rgba(110, 233, 255, 0.78);
   color: transparent;
 }
+
+/* Крупный заголовок hero: ограничен и по ширине, и по высоте окна,
+   иначе на 1440×900 блок с CTA уезжает под нижнюю панель. */
+.hero-title {
+  font-size: clamp(2.35rem, min(8vw, 9.2vh), 6.2rem);
+}
+
 
 @utility clip-pad {
   clip-path: inset(0 0 0 0 round 24px);

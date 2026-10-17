@@ -137,12 +137,18 @@ export default function Contact() {
                   </motion.svg>
                   <h3 className="mt-8 font-display text-2xl font-medium text-white">Заявка сохранена</h3>
                   <p className="mt-4 max-w-xs text-sm leading-relaxed text-mist">
-                    Спасибо — ваш запрос получен. Мы свяжемся в течение рабочего дня
-                    и подготовим предложение.
+                    Демо-режим без сервера: данные остались только в этом браузере и никуда не отправлены.
+                    Чтобы заявка дошла до нас — позвоните или отправьте её по телефону ниже.
                   </p>
+                  <a
+                    href="tel:+79039251002"
+                    className="mt-6 flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-glacier"
+                  >
+                    <Phone className="h-4 w-4" /> +7 903 925 10 02
+                  </a>
                   <button
                     onClick={() => setState("idle")}
-                    className="mt-8 flex items-center gap-2 rounded-full border border-line-2 px-6 py-3 text-sm font-medium text-white transition-colors hover:border-glacier/60 hover:text-glacier"
+                    className="mt-4 flex items-center gap-2 rounded-full border border-line-2 px-6 py-3 text-sm font-medium text-white transition-colors hover:border-glacier/60 hover:text-glacier"
                   >
                     <RotateCcw className="h-4 w-4" /> Отправить ещё одну
                   </button>

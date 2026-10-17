@@ -95,7 +95,7 @@ const LINES: { text: string; cls?: string }[] = [
 
 const Headline: React.FC<{ started: boolean }> = ({ started }) => (
   <h1
-    className="font-display text-[clamp(2.7rem,8.6vw,7.6rem)] font-semibold uppercase leading-[0.98] tracking-[-0.01em] text-white"
+    className="hero-title font-display font-semibold uppercase leading-[0.98] tracking-[-0.01em] text-white"
     aria-label="Гора должна работать. Не очередь."
   >
     {LINES.map((line, li) => (
@@ -138,12 +138,16 @@ export default function Hero({ started }: { started: boolean }) {
   const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-26%"]);
 
   return (
-    <section id="top" ref={ref} className="relative flex h-[100svh] min-h-[680px] flex-col overflow-hidden">
+    <section id="top" ref={ref} className="relative flex min-h-[100svh] flex-col overflow-hidden">
       {/* backdrop */}
       <motion.div className="absolute inset-0" style={{ y: bgY, scale: bgScale }}>
         <img
           src="./img/hero-mountain.jpg"
           alt="Горнолыжный курорт в синий час — канатная дорога над заснеженными склонами"
+          width={2352}
+          height={1008}
+          fetchPriority="high"
+          decoding="async"
           className="h-full w-full object-cover"
         />
       </motion.div>
@@ -154,13 +158,13 @@ export default function Hero({ started }: { started: boolean }) {
       {/* content */}
       <motion.div
         style={{ opacity: fade, y: contentY }}
-        className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-1 flex-col justify-end px-5 pb-40 pt-28 sm:px-8 lg:pb-44"
+        className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-1 flex-col justify-end px-5 pb-32 pt-24 sm:px-8 lg:pb-32"
       >
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           animate={started ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-7 flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.3em] text-ice sm:text-[11px]"
+          className="mb-6 flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.3em] text-ice sm:text-[11px]"
         >
           <span className="relative flex h-2 w-2">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-glacier opacity-70" />
@@ -177,7 +181,7 @@ export default function Hero({ started }: { started: boolean }) {
               initial={{ opacity: 0, y: 24 }}
               animate={started ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 1, delay: 0.75, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-7 max-w-xl text-base leading-relaxed text-mist sm:text-lg"
+              className="mt-6 max-w-xl text-base leading-relaxed text-mist sm:text-lg"
             >
               Единый цифровой слой курорта: продажа и пополнение ски-пассов, доступ на подъёмники
               и платежи — от кафе на вершине до проката и парковки.
@@ -187,7 +191,7 @@ export default function Hero({ started }: { started: boolean }) {
               initial={{ opacity: 0, y: 24 }}
               animate={started ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 1, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-9 flex flex-wrap items-center gap-4"
+              className="mt-8 flex flex-wrap items-center gap-4"
             >
               <Magnet strength={0.3}>
                 <button

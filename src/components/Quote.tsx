@@ -12,6 +12,10 @@ export default function Quote() {
       <motion.img
         src="./img/action.jpg"
         alt="Сноубордист в прыжке на фоне зимнего солнца"
+        width={1920}
+        height={1280}
+        loading="lazy"
+        decoding="async"
         style={{ y }}
         className="absolute inset-0 h-[128%] w-full object-cover"
       />
