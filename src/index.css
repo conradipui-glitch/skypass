@@ -1,0 +1,195 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #04070c;
+  --color-ink-2: #070c14;
+  --color-panel: #0a1019;
+  --color-panel-2: #0d1522;
+  --color-line: rgba(158, 208, 255, 0.13);
+  --color-line-2: rgba(158, 208, 255, 0.22);
+  --color-glacier: #6ee9ff;
+  --color-ice: #aef0ff;
+  --color-deep: #0e5f78;
+  --color-ember: #ff8a5c;
+  --color-mist: #8fa4bb;
+
+  --font-display: "Unbounded", "Manrope", system-ui, sans-serif;
+  --font-sans: "Manrope", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --animate-marquee: marquee 42s linear infinite;
+  --animate-spin-slow: spin 16s linear infinite;
+  --animate-pulse-dot: pulse-dot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes pulse-dot {
+    0%,
+    100% {
+      opacity: 1;
+      r: 3;
+    }
+    50% {
+      opacity: 0.4;
+    }
+  }
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+body {
+  background: var(--color-ink);
+  color: #f2f7fc;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--color-glacier);
+  color: #03121a;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #04070c;
+}
+::-webkit-scrollbar-thumb {
+  background: #16202e;
+  border-radius: 8px;
+  border: 2px solid #04070c;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #23344a;
+}
+
+html.has-cursor,
+html.has-cursor * {
+  cursor: none !important;
+}
+
+@utility text-stroke {
+  -webkit-text-stroke: 1px rgba(196, 226, 255, 0.3);
+  color: transparent;
+}
+
+@utility text-stroke-strong {
+  -webkit-text-stroke: 1px rgba(196, 226, 255, 0.5);
+  color: transparent;
+}
+
+@utility text-stroke-glacier {
+  -webkit-text-stroke: 1px rgba(110, 233, 255, 0.55);
+  color: transparent;
+}
+
+@utility clip-pad {
+  clip-path: inset(0 0 0 0 round 24px);
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ---------- range sliders ---------- */
+input[type="range"].slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 28px;
+  background: transparent;
+}
+input[type="range"].slider:focus {
+  outline: none;
+}
+input[type="range"].slider::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    rgba(110, 233, 255, 0.9) 0%,
+    rgba(110, 233, 255, 0.9) var(--fill, 50%),
+    rgba(255, 255, 255, 0.14) var(--fill, 50%),
+    rgba(255, 255, 255, 0.14) 100%
+  );
+}
+input[type="range"].slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -10px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #05080d;
+  border: 2px solid var(--color-glacier);
+  box-shadow:
+    0 0 0 6px rgba(110, 233, 255, 0.14),
+    0 0 24px rgba(110, 233, 255, 0.35);
+  transition: box-shadow 0.25s ease;
+}
+input[type="range"].slider:active::-webkit-slider-thumb {
+  box-shadow:
+    0 0 0 10px rgba(110, 233, 255, 0.22),
+    0 0 32px rgba(110, 233, 255, 0.5);
+}
+input[type="range"].slider::-moz-range-track {
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    rgba(110, 233, 255, 0.9) 0%,
+    rgba(110, 233, 255, 0.9) var(--fill, 50%),
+    rgba(255, 255, 255, 0.14) var(--fill, 50%),
+    rgba(255, 255, 255, 0.14) 100%
+  );
+}
+input[type="range"].slider::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #05080d;
+  border: 2px solid var(--color-glacier);
+  box-shadow:
+    0 0 0 6px rgba(110, 233, 255, 0.14),
+    0 0 24px rgba(110, 233, 255, 0.35);
+}
+
+/* number separators etc */
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* subtle film grain overlay */
+.grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  mix-blend-mode: overlay;
+}
